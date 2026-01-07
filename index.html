@@ -3,150 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You 3000 - The Bard's Secret</title>
+    <title>I Love You 3000 – The Bard's Secret</title>
     <style>
         body {
-            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
-            font-family: 'Georgia', serif;
-            color: #d4af37;
+            background: radial-gradient(circle at top, #4b1d10 0%, #12060a 55%, #050308 100%);
+            font-family: "Georgia", serif;
+            color: #f4e8d0;
             padding: 20px;
             min-height: 100vh;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 40px;
-            border: 3px solid #d4af37;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px 30px;
+            border: 2px solid #ffcc33;
+            border-radius: 12px;
+            box-shadow:
+                0 0 30px rgba(255, 204, 51, 0.35),
+                0 0 80px rgba(255, 60, 0, 0.25);
         }
         h1 {
             text-align: center;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px #000;
-            margin-bottom: 10px;
+            font-size: 2.6em;
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.4),
+                0 0 16px rgba(255, 153, 51, 0.7);
+            margin-bottom: 5px;
         }
         .subtitle {
             text-align: center;
             font-style: italic;
             margin-bottom: 30px;
-            color: #c9a961;
+            color: #ffd27f;
+        }
+        .subtitle small {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.9em;
+            color: #ffb347;
         }
         .riddle {
-            background: rgba(139, 69, 19, 0.3);
-            padding: 20px;
-            border-left: 4px solid #d4af37;
-            margin: 20px 0;
-            line-height: 1.8;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.35), rgba(88, 28, 12, 0.55));
+            padding: 18px 20px;
+            border-left: 4px solid #ffcc33;
+            margin: 20px 0 30px;
+            line-height: 1.75;
+        }
+        .riddle strong {
+            color: #ffe7a3;
+        }
+        .stage {
+            margin: 30px 0;
+            padding: 22px 20px;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 204, 51, 0.3);
+        }
+        .stage h2 {
+            margin-top: 0;
+            color: #ffdd66;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+        }
+        .stage p {
+            line-height: 1.7;
         }
         .scroll {
             background: #f4e8d0;
             color: #2c1810;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 14px 16px;
+            margin: 18px 0;
             border: 2px solid #8b4513;
-            font-family: 'Courier New', monospace;
-            border-radius: 5px;
+            font-family: "Courier New", monospace;
+            border-radius: 6px;
+            font-size: 0.95em;
         }
-        button {
-            background: #d4af37;
-            color: #1a0f0a;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px 5px;
-            transition: all 0.3s;
-        }
-        button:hover {
-            background: #ffd700;
-            transform: scale(1.05);
-        }
-        #result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            display: none;
-        }
-        .success {
-            background: rgba(0, 128, 0, 0.3);
-            border: 2px solid #00ff00;
-        }
-        .error {
-            background: rgba(139, 0, 0, 0.3);
-            border: 2px solid #ff0000;
+        .scroll strong {
+            color: #5b3010;
         }
         input {
             width: 100%;
-            padding: 12px;
-            font-size: 1.1em;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            border-radius: 5px;
-            margin: 10px 0;
+            padding: 11px 12px;
+            font-size: 1.05em;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #ffcc33;
+            color: #ffecb3;
+            border-radius: 6px;
+            margin: 8px 0 12px;
         }
-        .stage {
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
+        input::placeholder {
+            color: rgba(255, 236, 179, 0.55);
+        }
+        button {
+            background: linear-gradient(135deg, #ffcc33, #ff7b2c);
+            color: #1a0604;
+            border: none;
+            padding: 10px 26px;
+            font-size: 1.02em;
+            cursor: pointer;
             border-radius: 5px;
+            font-weight: bold;
+            margin-top: 4px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 0 12px rgba(255, 153, 51, 0.5);
+        }
+        button:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+            box-shadow: 0 0 18px rgba(255, 204, 102, 0.8);
+        }
+        .result {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 5px;
+            display: none;
+            font-size: 0.98em;
+        }
+        .success {
+            background: rgba(28, 120, 64, 0.25);
+            border: 1px solid #00ff7f;
+        }
+        .error {
+            background: rgba(120, 28, 28, 0.25);
+            border: 1px solid #ff6b6b;
+        }
+        .arc-reactor {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #ffcc99;
+        }
+        .arc-reactor span {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 204, 153, 0.5);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 65%);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 26px 18px;
+            }
+            h1 {
+                font-size: 2.1em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎭 I Love You 3000 🎭</h1>
-        <div class="subtitle">"To capture the flag, or not to capture the flag, that is the question!"</div>
+        <h1>I Love You 3000</h1>
+        <div class="subtitle">
+            A Shakespearean CTF forged in LNMIIT and Stark Industries.
+            <small>"To crack or not to crack, that is the question."</small>
+        </div>
         
         <div class="riddle">
-            <p><strong>Hark!</strong> Brave soul who doth venture here,</p>
-            <p>Three trials await thee, have no fear.</p>
-            <p>The Bard and Stark their secrets blend,</p>
-            <p>Prove thy worth from start to end.</p>
+            <p><strong>Prologue.</strong> The Bard took quill in hand, Stark took arc reactor in heart, and together they forged a puzzle for minds that burn brighter than any suit of armor.</p>
+            <p>Three trials guard a single flag. Decode the words of love, eavesdrop on the whispers of code, and outwit Caesar’s shifting tongue. Only then shalt thou be worthy of the final line.</p>
         </div>
 
         <!-- Stage 1 -->
         <div class="stage" id="stage1">
-            <h2>⚔️ First Trial: The Cipher of the Rose</h2>
-            <p>What's in a name? A rose by any other name would smell as sweet, yet this rose speaks in code most discreet.</p>
+            <h2>⚔️ First Trial: The Course of True Love</h2>
+            <p>
+                The Bard has hidden a familiar line of longing behind an unfamiliar mask.
+                A string of strange characters awaits thee; yet beneath it, true love still struggles.
+            </p>
             
             <div class="scroll">
                 <strong>The First Scroll:</strong><br>
                 VGhlIGNvdXJzZSBvZiB0cnVlIGxvdmUgbmV2ZXIgZGlkIHJ1biBzbW9vdGg=
             </div>
             
-            <p><em>"Decipher this scroll, and the path shall reveal,<br>
-                A secret untold, for the keen eye to unseal."</em></p>
+            <p>
+                Speak the restored line back to the stage, and the first curtain shall rise.
+            </p>
             
-            <input type="text" id="answer1" placeholder="Enter thy answer here...">
-            <button onclick="checkStage1()">Submit thy Answer</button>
-            <div id="result1"></div>
+            <input type="text" id="answer1" placeholder="Restore the hidden line of love...">
+            <button onclick="checkStage1()">Submit</button>
+            <div id="result1" class="result"></div>
         </div>
 
         <!-- Stage 2 (Hidden initially) -->
         <div class="stage" id="stage2" style="display:none;">
-            <h2>🗡️ Second Trial: The JavaScript Jest</h2>
-            <p>All the world's a stage, and all the code merely players. Some lines speak softly where only watchers of the Console may hear.</p>
+            <h2>🛠️ Second Trial: The Secret Console of Stark</h2>
+            <p>
+                Not all lines are meant for the audience. Some are spoken in the wings, where only those who watch the console of the browser may hear them.
+                There, a certain function awaits the one who knows its name.
+            </p>
             
             <div class="scroll">
-                <strong>The Bard speaks:</strong><br>
-                "Where shadows of scripts in silence stay,<br>
-                The keen observer shall find their way."
+                <strong>A Whisper in Code:</strong><br>
+                "Where playwrights see monologues, engineers see logs.<br>
+                Eavesdrop upon the script, and repeat what the hidden voice reveals."
             </div>
             
-            <input type="text" id="answer2" placeholder="Enter what the hidden tongue reveals...">
-            <button onclick="checkStage2()">Submit thy Discovery</button>
-            <div id="result2"></div>
+            <input type="text" id="answer2" placeholder="Repeat the secret phrase exactly...">
+            <button onclick="checkStage2()">Submit</button>
+            <div id="result2" class="result"></div>
         </div>
 
         <!-- Stage 3 (Hidden initially) -->
         <div class="stage" id="stage3" style="display:none;">
             <h2>👑 Third Trial: The Crown of Caesar</h2>
-            <p>Et tu, Brute? Even Caesar's cipher cannot hide from thee!</p>
+            <p>
+                At last, Caesar claims the stage. His alphabet marches in circles, thirteen steps at a time.
+                Within this final scroll lies the flag fit for LNMIIT – if thou canst read through his rotation.
+            </p>
             
             <div class="scroll">
                 <strong>The Final Scroll:</strong><br>
@@ -156,67 +220,78 @@
             </div>
             
             <input type="text" id="answer3" placeholder="Enter the flag in format LNM{...}">
-            <button onclick="checkStage3()">Claim thy Victory</button>
-            <div id="result3"></div>
+            <button onclick="checkStage3()">Submit Flag</button>
+            <div id="result3" class="result"></div>
+        </div>
+
+        <div class="arc-reactor">
+            <span>
+                When the final flag is thine, remember:<br>
+                even genius, billionaire, playboy, philanthropists say, “I love you 3000.”
+            </span>
         </div>
     </div>
 
     <script>
+        // Stage 1: Base64 quote
         function checkStage1() {
             const answer = document.getElementById('answer1').value.trim();
             const result = document.getElementById('result1');
             
             if (answer.toLowerCase().includes('course') && answer.toLowerCase().includes('love')) {
-                result.className = 'success';
+                result.className = 'result success';
                 result.style.display = 'block';
-                result.innerHTML = '✅ <strong>Well done, scholar!</strong> Thou hast deciphered the first scroll.';
+                result.innerHTML = '✅ The line returns to the stage, and true love stumbles on. The first curtain rises.';
                 document.getElementById('stage2').style.display = 'block';
             } else {
-                result.className = 'error';
+                result.className = 'result error';
                 result.style.display = 'block';
-                result.innerHTML = '❌ Alas! Thy answer doth not ring true. Try again, brave soul!';
+                result.innerHTML = '❌ The Bard frowns. The words of love have not yet taken their proper form.';
             }
         }
 
+        // Stage 2: console secret
         function speakBard() {
             return "The key is: ROMEO_JULIET_42";
         }
 
-        console.log("🎭 The Bard whispers where only watchers of scripts may see.");
-        console.log("Some functions speak when called by name...");
-        console.log("And remember, Stark once said: I love you 3000.");
+        console.log("🎭 The script has its secrets. Some are logged, some await a function call.");
+        console.log("A certain voice answers only when invoked by its true name: speakBard().");
+        console.log("And somewhere between quills and quantum suits, a child once said: I love you 3000.");
 
         function checkStage2() {
             const answer = document.getElementById('answer2').value.trim();
             const result = document.getElementById('result2');
             
             if (answer === 'ROMEO_JULIET_42' || answer === 'The key is: ROMEO_JULIET_42') {
-                result.className = 'success';
+                result.className = 'result success';
                 result.style.display = 'block';
-                result.innerHTML = '✅ <strong>Magnificent!</strong> Thy keen eye hath served thee well.';
+                result.innerHTML = '✅ The hidden log is spoken aloud. Stark nods; the Bard bows. The final act awaits.';
                 document.getElementById('stage3').style.display = 'block';
             } else {
-                result.className = 'error';
+                result.className = 'result error';
                 result.style.display = 'block';
-                result.innerHTML = '❌ Not quite! That is not the secret sought.';
+                result.innerHTML = '❌ The stage remains quiet. That is not the phrase the code remembers.';
             }
         }
 
+        // Stage 3: ROT13 / Caesar
         function checkStage3() {
             const answer = document.getElementById('answer3').value.trim();
             const result = document.getElementById('result3');
             
             if (answer === 'LNM{THE_BARD_WOULD_BE_PROUD}') {
-                result.className = 'success';
+                result.className = 'result success';
                 result.style.display = 'block';
-                result.innerHTML = '🎉 <strong>HUZZAH!</strong> Thou hast conquered all three trials!<br><br>' +
-                                   '🏆 <strong>FLAG CAPTURED:</strong> LNM{THE_BARD_WOULD_BE_PROUD}<br><br>' +
-                                   'From Verona to Avengers, from quill to arc reactor, know this:<br>' +
-                                   '<strong>I love you 3000.</strong>';
+                result.innerHTML =
+                    '🎉 The crowd erupts! Thou hast worn the Crown of Caesar and kept thy head.<br><br>' +
+                    '🏆 <strong>FLAG:</strong> LNM{THE_BARD_WOULD_BE_PROUD}<br><br>' +
+                    'From Stratford to LNMIIT, from ink to nanotech – consider this the Bard’s blessing and Stark’s salute:<br>' +
+                    '<strong>I love you 3000.</strong>';
             } else {
-                result.className = 'error';
+                result.className = 'result error';
                 result.style.display = 'block';
-                result.innerHTML = '❌ The flag is not correct.';
+                result.innerHTML = '❌ The crown rejects thee. That is not the flag that history remembers.';
             }
         }
     </script>
