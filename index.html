@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +108,7 @@
     <div class="container">
         <h1>🎭 The Bard's Secret 🎭</h1>
         <div class="subtitle">"To capture the flag, or not to capture the flag, that is the question!"</div>
-
+        
         <div class="riddle">
             <p><strong>Hark!</strong> Brave soul who doth venture here,</p>
             <p>Three trials await thee, have no fear.</p>
@@ -119,15 +120,15 @@
         <div class="stage" id="stage1">
             <h2>⚔️ First Trial: The Cipher of the Rose</h2>
             <p>What's in a name? A rose by any other name would smell as sweet, yet this rose speaks in code most discreet.</p>
-
+            
             <div class="scroll">
                 <strong>The First Scroll:</strong><br>
                 VGhlIGNvdXJzZSBvZiB0cnVlIGxvdmUgbmV2ZXIgZGlkIHJ1biBzbW9vdGg=
             </div>
-
+            
             <p><em>"Decipher this scroll, and the path shall reveal,<br>
                 A key in the source, where the truth doth congeal."</em></p>
-
+            
             <input type="text" id="answer1" placeholder="Enter thy answer here...">
             <button onclick="checkStage1()">Submit thy Answer</button>
             <div id="result1"></div>
@@ -137,13 +138,13 @@
         <div class="stage" id="stage2" style="display:none;">
             <h2>🗡️ Second Trial: The JavaScript Jest</h2>
             <p>All the world's a stage, and all the code merely players. Inspect the console where secrets are whispered!</p>
-
+            
             <div class="scroll">
                 <strong>The Bard speaks:</strong><br>
                 "Open thy Developer Tools and seek the Console.<br>
                 There ye shall find a function most droll."
             </div>
-
+            
             <input type="text" id="answer2" placeholder="Call the function and enter the result...">
             <button onclick="checkStage2()">Submit thy Discovery</button>
             <div id="result2"></div>
@@ -153,15 +154,15 @@
         <div class="stage" id="stage3" style="display:none;">
             <h2>👑 Third Trial: The Crown of Caesar</h2>
             <p>Et tu, Brute? Even Caesar's cipher cannot hide from thee!</p>
-
+            
             <div class="scroll">
                 <strong>The Final Scroll:</strong><br>
-                Wkh iodj lv: FWI{WKH_EDUQ_ZRXOG_EH_SURXG}
+                Wkh iodj lv: YAZ{GUR_ONEQ_JBHYQ_OR_CEBHQ}
                 <br><br>
                 <em>Shift: XIII (The unlucky number)</em>
             </div>
-
-            <input type="text" id="answer3" placeholder="Enter the flag in format CTF{...}">
+            
+            <input type="text" id="answer3" placeholder="Enter the flag in format LNM{...}">
             <button onclick="checkStage3()">Claim thy Victory</button>
             <div id="result3"></div>
         </div>
@@ -180,7 +181,7 @@
         function checkStage1() {
             const answer = document.getElementById('answer1').value.trim();
             const result = document.getElementById('result1');
-
+            
             // The decoded message is: "The course of true love never did run smooth"
             if (answer.toLowerCase().includes('course') && answer.toLowerCase().includes('love')) {
                 result.className = 'success';
@@ -206,7 +207,7 @@
         function checkStage2() {
             const answer = document.getElementById('answer2').value.trim();
             const result = document.getElementById('result2');
-
+            
             if (answer === 'ROMEO_JULIET_42' || answer === 'The key is: ROMEO_JULIET_42') {
                 result.className = 'success';
                 result.style.display = 'block';
@@ -223,14 +224,14 @@
         function checkStage3() {
             const answer = document.getElementById('answer3').value.trim();
             const result = document.getElementById('result3');
-
-            // The flag is CTF{THE_BARD_WOULD_BE_PROUD}
-            if (answer === 'CTF{THE_BARD_WOULD_BE_PROUD}') {
+            
+            // The flag is LNM{THE_BARD_WOULD_BE_PROUD}
+            if (answer === 'LNM{THE_BARD_WOULD_BE_PROUD}') {
                 result.className = 'success';
                 result.style.display = 'block';
                 result.innerHTML = '🎉 <strong>HUZZAH!</strong> Thou hast conquered all three trials!<br><br>' +
-                                 '🏆 <strong>FLAG CAPTURED:</strong> CTF{THE_BARD_WOULD_BE_PROUD}<br><br>' +
-                                 'Thou art truly worthy of the Bard's blessing. Well played!';
+                                 '🏆 <strong>FLAG CAPTURED:</strong> LNM{THE_BARD_WOULD_BE_PROUD}<br><br>' +
+                                 'Thou art truly worthy of the Bard\'s blessing. Well played!';
             } else {
                 result.className = 'error';
                 result.style.display = 'block';
@@ -242,7 +243,7 @@
         function showHint(stage) {
             const hintsDiv = document.getElementById('hints');
             let hint = '';
-
+            
             if (stage === 1) {
                 hint = '<strong>Hint 1:</strong> The scroll is encoded in Base64. Seek a decoder online or use the browser console: atob("encoded_string")';
             } else if (stage === 2) {
@@ -250,7 +251,7 @@
             } else if (stage === 3) {
                 hint = '<strong>Hint 3:</strong> Caesar cipher with shift 13 is also known as ROT13. Each letter shifts 13 positions in the alphabet.';
             }
-
+            
             hintsDiv.innerHTML = hint;
             hintsDiv.style.color = '#c9a961';
             hintsDiv.style.padding = '10px';
