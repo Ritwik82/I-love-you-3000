@@ -15,7 +15,7 @@ Welcome to "The Bard's Secret," where William Shakespeare himself has hidden a s
 - Caesar cipher / ROT13 decryption
 - HTML source code inspection
 
-**Final Flag:** `CTF{THE_BARD_WOULD_BE_PROUD}`
+**Final Flag:** `LNM{THE_BARD_WOULD_BE_PROUD}`
 
 ---
 
