@@ -1,10 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bard's Secret - A CTF Challenge</title>
+    <title>I Love You 3000 - The Bard's Secret</title>
     <style>
         body {
             background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
@@ -90,12 +89,6 @@
             border-radius: 5px;
             margin: 10px 0;
         }
-        .hint-section {
-            margin-top: 30px;
-            padding: 15px;
-            background: rgba(70, 35, 10, 0.5);
-            border-radius: 5px;
-        }
         .stage {
             margin: 30px 0;
             padding: 20px;
@@ -106,14 +99,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎭 The Bard's Secret 🎭</h1>
+        <h1>🎭 I Love You 3000 🎭</h1>
         <div class="subtitle">"To capture the flag, or not to capture the flag, that is the question!"</div>
         
         <div class="riddle">
             <p><strong>Hark!</strong> Brave soul who doth venture here,</p>
             <p>Three trials await thee, have no fear.</p>
-            <p>The Bard hath hidden secrets deep and true,</p>
-            <p>'Tis thine own wit that shall see thee through.</p>
+            <p>The Bard and Stark their secrets blend,</p>
+            <p>Prove thy worth from start to end.</p>
         </div>
 
         <!-- Stage 1 -->
@@ -127,7 +120,7 @@
             </div>
             
             <p><em>"Decipher this scroll, and the path shall reveal,<br>
-                A key in the source, where the truth doth congeal."</em></p>
+                A secret untold, for the keen eye to unseal."</em></p>
             
             <input type="text" id="answer1" placeholder="Enter thy answer here...">
             <button onclick="checkStage1()">Submit thy Answer</button>
@@ -137,15 +130,15 @@
         <!-- Stage 2 (Hidden initially) -->
         <div class="stage" id="stage2" style="display:none;">
             <h2>🗡️ Second Trial: The JavaScript Jest</h2>
-            <p>All the world's a stage, and all the code merely players. Inspect the console where secrets are whispered!</p>
+            <p>All the world's a stage, and all the code merely players. Some lines speak softly where only watchers of the Console may hear.</p>
             
             <div class="scroll">
                 <strong>The Bard speaks:</strong><br>
-                "Open thy Developer Tools and seek the Console.<br>
-                There ye shall find a function most droll."
+                "Where shadows of scripts in silence stay,<br>
+                The keen observer shall find their way."
             </div>
             
-            <input type="text" id="answer2" placeholder="Call the function and enter the result...">
+            <input type="text" id="answer2" placeholder="Enter what the hidden tongue reveals...">
             <button onclick="checkStage2()">Submit thy Discovery</button>
             <div id="result2"></div>
         </div>
@@ -159,34 +152,24 @@
                 <strong>The Final Scroll:</strong><br>
                 Wkh iodj lv: YAZ{GUR_ONEQ_JBHYQ_OR_CEBHQ}
                 <br><br>
-                <em>Shift: XIII (The unlucky number)</em>
+                <em>Shift: XIII</em>
             </div>
             
             <input type="text" id="answer3" placeholder="Enter the flag in format LNM{...}">
             <button onclick="checkStage3()">Claim thy Victory</button>
             <div id="result3"></div>
         </div>
-
-        <div class="hint-section">
-            <h3>📜 Hints for the Weary</h3>
-            <button onclick="showHint(1)">Hint for First Trial</button>
-            <button onclick="showHint(2)">Hint for Second Trial</button>
-            <button onclick="showHint(3)">Hint for Third Trial</button>
-            <div id="hints" style="margin-top: 15px;"></div>
-        </div>
     </div>
 
     <script>
-        // Stage 1: Base64 decoding
         function checkStage1() {
             const answer = document.getElementById('answer1').value.trim();
             const result = document.getElementById('result1');
             
-            // The decoded message is: "The course of true love never did run smooth"
             if (answer.toLowerCase().includes('course') && answer.toLowerCase().includes('love')) {
                 result.className = 'success';
                 result.style.display = 'block';
-                result.innerHTML = '✅ <strong>Well done, scholar!</strong> Thou hast deciphered the first scroll. Now inspect the page source for thy next clue!<br><br><!-- Stage 2 Password: toBeOrNotToBe -->';
+                result.innerHTML = '✅ <strong>Well done, scholar!</strong> Thou hast deciphered the first scroll.';
                 document.getElementById('stage2').style.display = 'block';
             } else {
                 result.className = 'error';
@@ -195,14 +178,13 @@
             }
         }
 
-        // Stage 2: Console challenge
         function speakBard() {
             return "The key is: ROMEO_JULIET_42";
         }
 
-        console.log("🎭 Hark! The Bard whispers in the console...");
-        console.log("To proceed, thou must call the function: speakBard()");
-        console.log("Type: speakBard() in this console to reveal the secret!");
+        console.log("🎭 The Bard whispers where only watchers of scripts may see.");
+        console.log("Some functions speak when called by name...");
+        console.log("And remember, Stark once said: I love you 3000.");
 
         function checkStage2() {
             const answer = document.getElementById('answer2').value.trim();
@@ -211,53 +193,31 @@
             if (answer === 'ROMEO_JULIET_42' || answer === 'The key is: ROMEO_JULIET_42') {
                 result.className = 'success';
                 result.style.display = 'block';
-                result.innerHTML = '✅ <strong>Magnificent!</strong> Thou hast found the secret in the console. Onward to thy final trial!';
+                result.innerHTML = '✅ <strong>Magnificent!</strong> Thy keen eye hath served thee well.';
                 document.getElementById('stage3').style.display = 'block';
             } else {
                 result.className = 'error';
                 result.style.display = 'block';
-                result.innerHTML = '❌ Not quite! Hast thou opened the Developer Console? (F12)';
+                result.innerHTML = '❌ Not quite! That is not the secret sought.';
             }
         }
 
-        // Stage 3: Caesar cipher (ROT13)
         function checkStage3() {
             const answer = document.getElementById('answer3').value.trim();
             const result = document.getElementById('result3');
             
-            // The flag is LNM{THE_BARD_WOULD_BE_PROUD}
             if (answer === 'LNM{THE_BARD_WOULD_BE_PROUD}') {
                 result.className = 'success';
                 result.style.display = 'block';
                 result.innerHTML = '🎉 <strong>HUZZAH!</strong> Thou hast conquered all three trials!<br><br>' +
-                                 '🏆 <strong>FLAG CAPTURED:</strong> LNM{THE_BARD_WOULD_BE_PROUD}<br><br>' +
-                                 'Thou art truly worthy of the Bard\'s blessing. Well played!';
+                                   '🏆 <strong>FLAG CAPTURED:</strong> LNM{THE_BARD_WOULD_BE_PROUD}<br><br>' +
+                                   'From Verona to Avengers, from quill to arc reactor, know this:<br>' +
+                                   '<strong>I love you 3000.</strong>';
             } else {
                 result.className = 'error';
                 result.style.display = 'block';
-                result.innerHTML = '❌ The flag is not correct. Remember Caesar and his shift of XIII!';
+                result.innerHTML = '❌ The flag is not correct.';
             }
-        }
-
-        // Hints
-        function showHint(stage) {
-            const hintsDiv = document.getElementById('hints');
-            let hint = '';
-            
-            if (stage === 1) {
-                hint = '<strong>Hint 1:</strong> The scroll is encoded in Base64. Seek a decoder online or use the browser console: atob("encoded_string")';
-            } else if (stage === 2) {
-                hint = '<strong>Hint 2:</strong> Press F12 to open Developer Tools. Navigate to the Console tab and type the function name followed by parentheses.';
-            } else if (stage === 3) {
-                hint = '<strong>Hint 3:</strong> Caesar cipher with shift 13 is also known as ROT13. Each letter shifts 13 positions in the alphabet.';
-            }
-            
-            hintsDiv.innerHTML = hint;
-            hintsDiv.style.color = '#c9a961';
-            hintsDiv.style.padding = '10px';
-            hintsDiv.style.background = 'rgba(0,0,0,0.5)';
-            hintsDiv.style.borderRadius = '5px';
-            hintsDiv.style.marginTop = '10px';
         }
     </script>
 </body>
